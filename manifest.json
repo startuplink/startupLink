@@ -1,0 +1,17 @@
+{
+    "manifest_version": 2,
+    "name": "startupLink",
+    "version": "0.1",
+    "description": "Extension which saves your link and opens it at once!",
+    "icons": {
+        "48": "icons/beasts-48.png"
+    },
+    "permissions": [
+        "activeTab"
+    ],
+    "browser_action": {
+        "default_icon": "icons/beasts-32.png",
+        "default_title": "StartupLink",
+        "default_popup": "popup/startupLinkPopup.html"
+    }
+}
