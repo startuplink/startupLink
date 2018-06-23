@@ -1,5 +1,6 @@
 html, body {
-    width: 400px;
+    width: 600px;
+    max-height: 700px;
 }
 
 .bd-main {
@@ -8,4 +9,17 @@ html, body {
     margin-bottom: 0;
     margin-left: 0;
     border-width: .2rem;
+}
+
+.form-group {
+    padding-top: 1rem;
+}
+
+.form-group input[type="text"] {
+    width: 350px;
+}
+
+
+.form-inline {
+    padding-bottom: 20px;
 }
