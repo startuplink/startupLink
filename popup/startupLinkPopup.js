@@ -20,7 +20,6 @@ function loadLink(key, body) {
 }
 
 function setLink(e) {
-    // debugger;
     var $event = $(e.target);
     var $baseElement = $event.closest('.form-group');
 
@@ -28,7 +27,7 @@ function setLink(e) {
     link.id = $baseElement.data('link-id');
     link.reference = $baseElement.find('input.url').val();
     link.pinned = $baseElement.find('input.pinned').prop('checked');
-    
+
     browser.storage.local.set({ [link.id]: link });
 }
 
@@ -46,10 +45,10 @@ function addLinkForm(data) {
     var $linkForm = $(linkForm);
     var $linkContainer = $('.link-container');
     $linkForm.attr("data-link-id", "link" + $linkContainer.children('.form-group').length);
-    
+
     $linkContainer.append($linkForm);
     $linkForm.find('.remove-link').click(removeLinkForm);
-    
+
     var $linkInput = $linkForm.find('input.url');
     var $linkPinned = $linkForm.find('input.pinned');
 
@@ -70,6 +69,18 @@ function removeLinkForm(event) {
     $target.closest('.form-group').remove();
 }
 
+function openLinks() {
+    var $formLinks = $('.form-group');
+    $.each($formLinks, (index, element) => {
+        var $element = $(element);
+        browser.tabs.create({
+            url: $element.find('.url').val(),
+            pinned: $element.find('.pinned').prop('checked')
+        });
+    });
+}
+
 function initEvents() {
     $('.bd-main .add-link').click(addLinkForm);
+    $('.bd-main .open-links').click(openLinks);
 }
