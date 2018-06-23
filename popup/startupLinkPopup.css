@@ -15,7 +15,7 @@ html, body {
     padding-top: 1rem;
 }
 
-.form-group input[type="text"] {
+.form-group .url {
     width: 350px;
 }
 

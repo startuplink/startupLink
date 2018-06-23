@@ -20,13 +20,14 @@ function loadLink(key, body) {
 }
 
 function setLink(e) {
+    // debugger;
     var $event = $(e.target);
     var $baseElement = $event.closest('.form-group');
 
     var link = {};
     link.id = $baseElement.data('link-id');
-    link.reference = $baseElement.find('input.form-control[type="text"]').val();
-    link.pinned = $baseElement.find('input.form-control[type="checkbox"]').prop('checked');
+    link.reference = $baseElement.find('input.url').val();
+    link.pinned = $baseElement.find('input.pinned').prop('checked');
     
     browser.storage.local.set({ [link.id]: link });
 }
@@ -36,8 +37,8 @@ function addLinkForm(data) {
     var linkForm = `    
         <div class="form-group">
             <label>Link</label>
-            <input type="text" class="form-control">
-            <input type="checkbox" class="form-control">
+            <input type="url" class="form-control url">
+            <input type="checkbox" class="form-control pinned">
             <input type="button" class="remove-link" value="Remove">
         </div>`;
 
@@ -49,8 +50,8 @@ function addLinkForm(data) {
     $linkContainer.append($linkForm);
     $linkForm.find('.remove-link').click(removeLinkForm);
     
-    var $linkInput = $linkForm.find('input[type="text"]');
-    var $linkPinned = $linkForm.find('input[type="checkbox"]');
+    var $linkInput = $linkForm.find('input.url');
+    var $linkPinned = $linkForm.find('input.pinned');
 
     if (data) {
         $linkForm.attr('data-link-id', data.id);
