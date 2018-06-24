@@ -28,11 +28,17 @@ function setLink(e) {
 
 function addLinkForm(data) {
     var linkForm = `    
-        <div class="form-group">
-            <label>Link</label>
-            <input type="url" class="form-control url">
-            <input type="checkbox" class="form-control pinned">
-            <input type="button" class="remove-link" value="Remove">
+        <div class="form-group align-items-center">
+            <label class="col-2 col-form-label">Link</label>
+            <div class="col-8">
+                <input type="url" class="form-control url">
+            </div>
+            <div class="col-1">
+                <input type="checkbox" class="form-control pinned">
+            </div>
+            <div class="col-1">
+                <input type="button" class="form-control btn btn-secondary remove-link" value="Remove">
+            </div>
         </div>`;
 
 
