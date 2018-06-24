@@ -13,12 +13,6 @@ function initialize() {
     });
 }
 
-function loadLink(key, body) {
-    $('.bd-main input[type="text"]').val(body.reference);
-    $('.bd-main input[type="checkbox"]').prop('checked', body.pinned);
-    $('.bd-main .form-group').attr('data-link-id', key);
-}
-
 function setLink(e) {
     var $event = $(e.target);
     var $baseElement = $event.closest('.form-group');
@@ -52,7 +46,7 @@ function addLinkForm(data) {
     var $linkInput = $linkForm.find('input.url');
     var $linkPinned = $linkForm.find('input.pinned');
 
-    if (data) {
+    if (data && data.id) {
         $linkForm.attr('data-link-id', data.id);
         $linkPinned[0].checked = data.pinned;
         $linkInput.val(data.reference);
