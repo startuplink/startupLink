@@ -73,8 +73,12 @@ function openLinks() {
     var $formLinks = $('.form-group');
     $.each($formLinks, (index, element) => {
         var $element = $(element);
+        var $urlInput = $element.find('.url');
+        if (!$urlInput.val() || $urlInput.is(':invalid')) {
+            return;
+        }
         browser.tabs.create({
-            url: $element.find('.url').val(),
+            url: $urlInput.val(),
             pinned: $element.find('.pinned').prop('checked')
         });
     });
