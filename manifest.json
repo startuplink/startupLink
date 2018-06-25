@@ -15,5 +15,11 @@
         "default_icon": "icons/startupLink-32.png",
         "default_title": "StartupLink",
         "default_popup": "popup/startupLinkPopup.html"
+    },
+    "applications": {
+        "gecko": {
+            "id": "startupLink@mail.com",
+            "strict_min_version": "57.0"
+        }
     }
 }
