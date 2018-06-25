@@ -18,7 +18,7 @@
     },
     "applications": {
         "gecko": {
-            "id": "startupLink@mail.com",
+            "id": "{a85dfecc-e82a-45d1-8699-80021877127d}",
             "strict_min_version": "57.0"
         }
     }

@@ -1,5 +1,5 @@
 # <img src="icons/startupLink-48.png" width="45" align="left"> startupLink
-
+[link-amo]: https://addons.mozilla.org/en-US/firefox/addon/startuplink42/ "Version published on Mozilla Add-ons"
 Extension for firefox 57+ to save links and open them at once.
 
 ## Description
@@ -14,9 +14,9 @@ Now it just need access to your browser local storage to save links after turnin
 
 I am glad to see your issue. You can add them [here](https://github.com/dlyahov/startupLink/issues).
 
-## Browser extension
-### Firefox
+## Install
+- [**Firefox** add-on][link-amo] [<img valign="middle" src="https://img.shields.io/badge/startupLink-v0.1-yellow.svg">][link-amo]
 
 
 ## License 
-Apache 2.0
+MIT
