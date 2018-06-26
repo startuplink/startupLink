@@ -1,5 +1,5 @@
 html, body {
-    width: 600px;
+    width: 550px;
     max-height: 700px;
 }
 
@@ -15,7 +15,10 @@ html, body {
     padding-top: 1rem;
 }
 
+.link-form-group {
+    padding-bottom: 25px;
+}
 
-.form-inline {
+.link-container {
     padding-bottom: 20px;
 }
