@@ -6,6 +6,7 @@ target/
 *.ntvs*
 *.njsproj
 *.sln
+addon/
 
 .DS_Store
 node_modules/
