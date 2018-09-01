@@ -1,3 +1,5 @@
+require('jquery');
+
 var $body = $(".body");
 
 initialize();

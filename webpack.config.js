@@ -1,9 +1,12 @@
-
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const GenerateJsonPlugin = require('generate-json-webpack-plugin');
 const webpack = require('webpack');
+const merge = require('webpack-merge');
+
 
 const extractPlugin = new ExtractTextPlugin({ filename: './popup/startupLinkPopup.css' });
 
@@ -23,33 +26,20 @@ module.exports = {
                 use: ['html-loader']
             },
             {
-                test: /\.scss$/,
-                include: [path.resolve(__dirname, 'src', 'assets', 'scss')],
-                use: extractPlugin.extract({
-                    use: [
-                        {
-                            loader: 'css-loader',
-                            options: {
-                                sourceMap: true
-                            }
-                        }
-                    ],
-                    fallback: 'style-loader'
-                })
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
             },
-            {
-                test: /\.png$/,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            name: '[name].[ext]',
-                            outputPath: './icons/',
-                            publicPath: './icons/'
-                        }
-                    }
-                ]
-            }
         ]
-    }
+    },
+    plugins: [
+        new webpack.optimize.ModuleConcatenationPlugin(),
+        new CopyWebpackPlugin([
+            {
+                from: 'static'
+            }
+        ]),
+        new GenerateJsonPlugin('manifest.json', merge(
+            require(`./manifest/firefox.json`)
+        ), null, 2)
+    ]
 };
