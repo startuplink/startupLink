@@ -1,21 +1,4 @@
 {
-    "manifest_version": 2,
-    "name": "startupLink",
-    "version": "0.1.1",
-    "description": "Extension which saves your link and opens it at once!",
-    "icons": {
-        "32": "icons/startupLink-32.png",
-        "48": "icons/startupLink-48.png",
-        "64": "icons/startupLink-64.png"
-    },
-    "permissions": [
-        "storage"
-    ],
-    "browser_action": {
-        "default_icon": "icons/startupLink-32.png",
-        "default_title": "StartupLink",
-        "default_popup": "popup/startupLinkPopup.html"
-    },
     "applications": {
         "gecko": {
             "id": "{a85dfecc-e82a-45d1-8699-80021877127d}",

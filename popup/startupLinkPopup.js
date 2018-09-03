@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import './startupLinkPopup.css';
 import 'bootstrap/dist/css/bootstrap.css';
-
+import 'webextension-polyfill';
 
 var $body = $(".body");
 
@@ -35,7 +35,7 @@ function setLink(e) {
 
 
 function addLinkForm(data) {
-  var linkForm = `    
+  var linkForm = `
             <div class="row link-form-group">
                 <label class="col-1 col-form-label">Link</label>
                 <div class="col-7">

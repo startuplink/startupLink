@@ -47,7 +47,8 @@ module.exports = function (env) {
         }
       ]),
       new GenerateJsonPlugin('manifest.json', merge(
-        require(`./manifest/firefox.json`)
+        require('./manifest/common.json'),
+        require(`./manifest/${browser}.json`)
       ), null, 2),
       new HtmlWebpackPlugin({
         inject: false,
