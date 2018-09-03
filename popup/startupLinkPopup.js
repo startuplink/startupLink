@@ -1,3 +1,8 @@
+import $ from 'jquery';
+import './startupLinkPopup.css';
+import 'bootstrap/dist/css/bootstrap.css';
+
+
 var $body = $(".body");
 
 initialize();

@@ -2,3 +2,15 @@
 web-ext-artifacts/
 target/
 *.zip
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+addon/
+
+.DS_Store
+node_modules/
+dist/
+npm-debug.log
+yarn-error.log
+package-lock.json
