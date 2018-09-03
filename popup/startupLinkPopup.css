@@ -1,24 +1,24 @@
 html, body {
-    width: 550px;
-    max-height: 700px;
+  width: 550px;
+  max-height: 700px;
 }
 
 .bd-main {
-    padding: 1.5rem;
-    margin-right: 0;
-    margin-bottom: 0;
-    margin-left: 0;
-    border-width: .2rem;
+  padding: 1.5rem;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  border-width: .2rem;
 }
 
 .form-group {
-    padding-top: 1rem;
+  padding-top: 1rem;
 }
 
 .link-form-group {
-    padding-bottom: 25px;
+  padding-bottom: 25px;
 }
 
 .link-container {
-    padding-bottom: 20px;
+  padding-bottom: 20px;
 }
