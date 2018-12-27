@@ -1,6 +1,7 @@
 html, body {
   width: 550px;
   max-height: 700px;
+  font-size: 12px;
 }
 
 .bd-main {

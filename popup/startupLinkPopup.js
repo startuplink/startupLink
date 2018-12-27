@@ -39,13 +39,16 @@ function addLinkForm(data) {
             <div class="row link-form-group">
                 <label class="col-1 col-form-label">Link</label>
                 <div class="col-7">
-                    <input type="url" class="form-control url">
+                  <input type="url" class="form-control url">
                 </div>
-                <div class="col-2 text-center">
-                    <input type="checkbox" class="form-control pinned">Pinned
+                <div class="col-1 text-center">
+                  <input type="checkbox" class="form-control pinned">
                 </div>
-                <div class="col-2">
-                    <a class="btn btn-danger remove-link"><i class="fas fa-eraser"></i></a>
+                <div class="col-1">
+                  <p>Pinned</p>
+                </div>
+                <div class="col-2 text-center"">
+                  <a class="btn btn-danger remove-link"><i class="fas fa-eraser"></i></a>
                 </div>
             </div>`;
 
