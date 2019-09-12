@@ -35,6 +35,7 @@ function setLink(e) {
 
 
 function addLinkForm(data) {
+  cleanupAlertMessages();
   var linkForm = `
             <div class="row link-form-group">
                 <label class="col-1 col-form-label">Link</label>
@@ -82,21 +83,52 @@ function removeLinkForm(event) {
 }
 
 function openLinks() {
-  var $formLinks = $('.link-form-group');
-  $.each($formLinks, (index, element) => {
-    var $element = $(element);
-    var $urlInput = $element.find('.url');
-    if (!$urlInput.val() || $urlInput.is(':invalid')) {
-      return;
+  cleanupAlertMessages();
+  browser.tabs.query({currentWindow: true}).then(
+    function(tabsOnCurrentWindow) {
+      var existedUrls = $.map(tabsOnCurrentWindow, (tab) => getDomain(tab.url));
+
+      var $formLinks = $('.link-form-group');
+      var openedEvenOneTab = false;
+      $.each($formLinks, (index, element) => {
+        var $element = $(element);
+        var $urlInput = $element.find('.url');
+        if (!$urlInput.val() || $urlInput.is(':invalid')) {
+          return;
+        }
+
+        // check url by domains
+        // if we have link with the same domain - don't open it
+        if (existedUrls.includes(getDomain($urlInput.val()))) {
+          return;
+        }
+        openedEvenOneTab = true;
+        browser.tabs.create({
+          url: $urlInput.val(),
+          pinned: $element.find('.pinned').prop('checked')
+        });
+      });
+
+      if (!openedEvenOneTab) {
+        $('.link-container').append(`
+          <div class="alert alert-warning" role="alert">
+            All links (domains) already opened!
+          </div>
+        `);
+      }
     }
-    browser.tabs.create({
-      url: $urlInput.val(),
-      pinned: $element.find('.pinned').prop('checked')
-    });
-  });
+  );
 }
 
 function initEvents() {
   $('.bd-main .add-link').click(addLinkForm);
   $('.bd-main .open-links').click(openLinks);
+}
+
+function getDomain(url) {
+  return url.split('/')[2];
+}
+
+function cleanupAlertMessages() {
+  $('.alert.alert-warning').remove();
 }
