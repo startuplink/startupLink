@@ -1,0 +1,30 @@
+name: Build Chrome Plugin
+# This workflow is triggered on pushes to the repository.
+on:
+  pull_request:
+    types: [closed]
+    branches:
+    - master         # Push events on master branch
+    - 10-**
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [8.x, 10.x, 12.x]
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: npm install and build Chrome plugin
+      run: |
+        npm install
+        npm run-script build:chrome:prod
+      env:
+        CI: true
