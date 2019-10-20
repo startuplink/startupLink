@@ -30,7 +30,7 @@ Before building plugin run command:
 #### Build plugin for firefox for development
 > npm run-script build:firefox
 
-#### Build plugin for firefox for production (how it will be in final version) 
+#### Build plugin for firefox for production (how it will be in final version)
 > npm run-script build:firefox:prod
 
 
@@ -38,7 +38,7 @@ Before building plugin run command:
 #### Build plugin for firefox for development
 > npm run-script build:chrome
 
-#### Build plugin for firefox for production (how it will be in final version) 
+#### Build plugin for firefox for production (how it will be in final version)
 > npm run-script build:chrome:prod
 
 
