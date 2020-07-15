@@ -110,7 +110,7 @@ function openLinks() {
     cleanupAlertMessages();
     browser.tabs.query({currentWindow: true}).then(
         function (tabsOnCurrentWindow) {
-            var existedUrls = $.map(tabsOnCurrentWindow, (tab) => getDomain(tab.url));
+            var existedUrls = $.map(tabsOnCurrentWindow, (tab) => tab.url);
 
             var $formLinks = $('.link-form-group');
             var openedEvenOneTab = false;
@@ -123,7 +123,7 @@ function openLinks() {
 
                 // check url by domains
                 // if we have link with the same domain - don't open it
-                if (existedUrls.includes(getDomain($urlInput.val()))) {
+                if (existedUrls.includes($urlInput.val())) {
                     return;
                 }
                 openedEvenOneTab = true;
