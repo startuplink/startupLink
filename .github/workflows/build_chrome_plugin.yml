@@ -1,10 +1,9 @@
 name: Build Chrome Plugin
-# This workflow is triggered on pushes to the repository.
+
 on:
   push:
-    types:
     branches:
-    - master         # Push events on master branch
+      - master
 
 jobs:
   build:
