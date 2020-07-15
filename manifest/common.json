@@ -15,7 +15,7 @@
     "https://startuplink-web.com/",
 
     "webRequest",
-    "<all_urls>"
+    "https://startuplink-web.com/"
   ],
   "browser_action": {
     "default_icon": "icons/startupLink-32.png",
