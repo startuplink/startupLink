@@ -23,6 +23,7 @@ jobs:
       run: |
         npm install
         npm run-script build:chrome:prod
+        sudo apt install zip
         zip startupLink-chrome.zip addon/
       - name: Upload math result for job 1
         uses: actions/upload-artifact@v2
