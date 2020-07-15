@@ -1,20 +1,25 @@
 {
   "manifest_version": 2,
   "name": "startupLink",
-  "version": "0.1.1",
+  "version": "1.0",
   "description": "Extension which saves your link and opens it at once!",
   "icons": {
-      "32": "icons/startupLink-32.png",
-      "48": "icons/startupLink-48.png",
-      "64": "icons/startupLink-64.png"
+    "32": "icons/startupLink-32.png",
+    "48": "icons/startupLink-48.png",
+    "64": "icons/startupLink-64.png"
   },
   "permissions": [
-      "storage",
-      "tabs"
+    "storage",
+    "tabs",
+    "cookies",
+    "https://startuplink-web.com/",
+
+    "webRequest",
+    "<all_urls>"
   ],
   "browser_action": {
-      "default_icon": "icons/startupLink-32.png",
-      "default_title": "StartupLink",
-      "default_popup": "popup/startupLinkPopup.html"
+    "default_icon": "icons/startupLink-32.png",
+    "default_title": "StartupLink",
+    "default_popup": "popup/startupLinkPopup.html"
   }
 }
