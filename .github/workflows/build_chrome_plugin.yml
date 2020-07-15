@@ -1,10 +1,9 @@
 name: Build Chrome Plugin
-# This workflow is triggered on pushes to the repository.
+
 on:
   push:
-    types:
     branches:
-    - master         # Push events on master branch
+      - master
 
 jobs:
   build:
@@ -23,10 +22,8 @@ jobs:
       run: |
         npm install
         npm run-script build:chrome:prod
-        zip startupLink-chrome.zip addon/
-      - name: Upload math result for job 1
-        uses: actions/upload-artifact@v2
-        with:
-          name: startupLink-chrome.zip
-          path: startupLink-chrome.zip
-ª
+    - name: Upload math result for job 1
+      uses: actions/upload-artifact@v2
+      with:
+        name: startupLink-chrome
+        path: addon/
