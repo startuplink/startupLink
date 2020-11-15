@@ -18,12 +18,12 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Build Chrome plugin
+    - name: Build Firefox plugin
       run: |
         npm install
-        npm run-script build:chrome:prod
-    - name: Upload Chrome plugin
+        npm run-script build:firefox:prod
+    - name: Upload Firefox plugin
       uses: actions/upload-artifact@v2
       with:
         name: startupLink-chrome
-        path: addon_chrome/addon_chrome.zip
+        path: addon_firefox/addon_firefox.zip

@@ -1,8 +1,8 @@
 {
     "applications": {
         "gecko": {
-            "id": "{a85dfecc-e82a-45d1-8699-80021877127d}",
-            "strict_min_version": "64.0"
+            "id": "dev.liakhov@gmail.com",
+            "strict_min_version": "81.0"
         }
     }
 }

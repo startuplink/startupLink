@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const GenerateJsonPlugin = require('generate-json-webpack-plugin');
+const ZipPlugin = require('zip-webpack-plugin');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 
@@ -12,8 +13,7 @@ const merge = require('webpack-merge');
 const extractPlugin = new ExtractTextPlugin({ filename: './popup/startupLinkPopup.css' });
 
 module.exports = function (env) {
-  console.log(env);
-  const [mode, browser, benchmark, firefoxBeta] = env.split(':');
+  const [mode, browser, benchmark, firefoxBeta] = Object.keys(env)[0].split(':');
   let version = require('./manifest/common.json').version;
   if (firefoxBeta) {
     version += 'beta';
@@ -24,7 +24,7 @@ module.exports = function (env) {
       popup: "./popup/startupLinkPopup.js"
     },
     output: {
-      path: path.resolve(__dirname, "addon"),
+      path: path.resolve(__dirname, "addon_" + browser),
       filename: "[name]/index.js"
     },
     module: {
@@ -55,7 +55,10 @@ module.exports = function (env) {
         hash: true,
         template: './popup/startupLinkPopup.html',
         filename: 'popup/startupLinkPopup.html'
-      })
+      }),
+      new ZipPlugin({
+        filename: `addon_${browser}.zip`,
+      }),
     ]
   }
 
