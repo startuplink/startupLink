@@ -25,5 +25,5 @@ jobs:
     - name: Upload Firefox plugin
       uses: actions/upload-artifact@v2
       with:
-        name: startupLink-chrome
+        name: startupLink-firefox
         path: addon_firefox/addon_firefox.zip
