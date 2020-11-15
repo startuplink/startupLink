@@ -4,12 +4,12 @@
   "description": "Extension which saves your link and opens it at once!",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "rimraf addon",
+    "clean": "rimraf addon_*",
     "build": "echo \"You must specify the target browser (firefox or chrome). Example: npm run build:firefox\"",
-    "build:firefox": "npm run clean && webpack --config webpack.config.js --env=dev:firefox:benchmark --progress --colors",
-    "build:firefox:prod": "npm run clean && webpack --config webpack.config.js --env=prod:firefox:benchmark --progress --colors",
-    "build:chrome": "npm run clean && webpack --config webpack.config.js --env=dev:chrome:benchmark --progress --colors",
-    "build:chrome:prod": "npm run clean && webpack --config webpack.config.js --env=prod:chrome:nobenchmark --progress --colors",
+    "build:firefox": "npm run clean && webpack --config webpack.config.js --env=dev:firefox:benchmark --progress --color",
+    "build:firefox:prod": "npm run clean && webpack --config webpack.config.js --env=prod:firefox:benchmark --progress --color",
+    "build:chrome": "npm run clean && webpack --config webpack.config.js --env=dev:chrome:benchmark --progress --color",
+    "build:chrome:prod": "npm run clean && webpack --config webpack.config.js --env=prod:chrome:nobenchmark --progress --color",
     "start:firefox": "web-ext run  --source-dir ./addon/"
   },
   "repository": {
@@ -30,21 +30,23 @@
     "css-loader": "^1.0.0",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^2.0.0",
-    "generate-json-webpack-plugin": "^0.2.2",
+    "generate-json-webpack-plugin": "^2.0.0",
     "html-loader": "^0.5.5",
-    "html-webpack-plugin": "^3.2.0",
+    "html-webpack-plugin": "^4.5.0",
     "node-sass": "^4.14.1",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.0",
     "url-loader": "^0.5.9",
     "web-ext": "^2.9.3",
-    "webpack": "^3.12.0",
-    "webpack-merge": "^4.1.0"
+    "webextension-polyfill": "^0.7.0",
+    "webpack": "^5.4.0",
+    "webpack-cli": "^4.2.0",
+    "webpack-merge": "^4.1.0",
+    "zip-webpack-plugin": "^3.0.0"
   },
   "dependencies": {
     "bootstrap": "^4.5.0",
     "jquery": "^3.5.1",
-    "npm": "^6.14.5",
-    "webextension-polyfill": "git+https://github.com/lusakasa/webextension-polyfill.git"
+    "npm": "^6.14.8"
   }
 }
