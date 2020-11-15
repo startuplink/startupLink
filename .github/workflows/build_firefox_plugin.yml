@@ -1,4 +1,4 @@
-name: Build Chrome Plugin
+name: Build Firefox Plugin
 
 on:
   push:
